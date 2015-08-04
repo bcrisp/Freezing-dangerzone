@@ -1,4 +1,4 @@
-name := "my-first-app"
+name := "Tutorial"
 
 version := "1.0.0-SNAPSHOT"
 
