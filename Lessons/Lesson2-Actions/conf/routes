@@ -1,2 +1,2 @@
 GET / @controllers.Application.index
-GET /username/:name @controllers.Application.name(name: String)
+GET /username/:name @controllers.Application.username(name: String)

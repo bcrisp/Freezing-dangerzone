@@ -9,7 +9,7 @@ class Application extends Controller {
   Ok ("Hello world!")
   }
 
-  def name(name:String) = Action {
-    Ok (name)
+  def username(name:String) = Action {
+    Ok ("Hello " + name + "!")
   }
 }
