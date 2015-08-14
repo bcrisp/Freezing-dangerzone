@@ -1,23 +1,35 @@
 package controllers
 
+import models.Customer
 import play.api._
 import play.api.mvc._
+import play.api.data._
+import play.api.data.Forms._
+import play.api.i18n.Messages.Implicits._
 
-class Application extends Controller {
+import play.api.Play.current
 
-  def index = Action { request =>
-  Ok ("Hello world!" + request)
+case class LoginData(username: String, password: String)
+
+class Application extends Controller  {
+
+  def index = Action {
+  Ok ("Hello world!")
   }
 
-  def name(name:String) = Action {
-    Ok (name)
+  def username(name:String) = Action {
+    Ok ("Hello " + name + "!")
   }
 
-  def google = Action {
-    Redirect("https://www.google.com")
-  }
+  def login = Action {
 
-  def add(number1: Int, number2: Int) = Action {
-    Ok( (number1 + number2).toString())
+    val userForm = Form(
+      mapping(
+        "username" -> text,
+        "password" -> text
+      )(LoginData.apply)(LoginData.unapply)
+    )
+
+    Ok(views.html.login(userForm))
   }
 }

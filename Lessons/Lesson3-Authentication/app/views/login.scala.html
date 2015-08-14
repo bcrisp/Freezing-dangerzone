@@ -1,0 +1,11 @@
+@(loginForm:Form[LoginData])(implicit messages: Messages)
+
+@import helper._
+
+<h1>Login Form</h1>
+@form(action=routes.Application.login()) {
+@inputText(loginForm("Username"))
+@inputText(loginForm("Password"))
+<input type="submit" value="Submit">
+
+}

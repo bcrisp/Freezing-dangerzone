@@ -1,4 +1,3 @@
-GET / @controllers.Application.index
-GET /username/:name @controllers.Application.name(name: String)
-GET /google @controllers.Application.google
-GET /add/:number1/:number2  @controllers.Application.add(number1: Int, number2: Int)
+GET /               @controllers.Application.index
+GET /username/:name @controllers.Application.username(name: String)
+GET /login          @controllers.Application.login
