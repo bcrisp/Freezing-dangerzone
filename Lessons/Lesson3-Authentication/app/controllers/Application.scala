@@ -31,4 +31,11 @@ class Application extends Controller  {
 
     Ok(views.html.login(userForm))
   }
+
+  def loginData(username:String, password:String) = Action{
+    if(username == "admin" && password == "123")
+    {
+      Ok("your logged in")
+    }
+  }
 }
