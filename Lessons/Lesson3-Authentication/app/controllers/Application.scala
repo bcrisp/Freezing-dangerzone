@@ -20,22 +20,25 @@ class Application extends Controller  {
     Ok ("Hello " + name + "!")
   }
 
+  val userForm = Form(
+    mapping(
+      "username" -> text,
+      "password" -> text
+    )(LoginData.apply)(LoginData.unapply)
+  )
   def login = Action {
-
-    val userForm = Form(
-      mapping(
-        "username" -> text,
-        "password" -> text
-      )(LoginData.apply)(LoginData.unapply)
-    )
-
     Ok(views.html.login(userForm))
   }
 
-  def loginData(username:String, password:String) = Action{
-    if(username == "admin" && password == "123")
+  def loginData = Action{ implicit request =>
+    val loginInfo = userForm.bindFromRequest.get
+    if(loginInfo.username == "admin" && loginInfo. password == "123")
     {
-      Ok("your logged in")
+      Ok("you are logged in")
+    }
+    else
+    {
+      Ok("you are not logged in")
     }
   }
 }

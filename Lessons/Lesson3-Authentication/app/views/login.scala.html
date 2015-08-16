@@ -3,9 +3,9 @@
 @import helper._
 
 <h1>Login Form</h1>
-@form(action=routes.Application.login()) {
-@inputText(loginForm("Username"))
-@inputText(loginForm("Password"))
+@form(action=routes.Application.loginData()){
+@inputText(loginForm("username"))
+@inputText(loginForm("password"))
 <input type="submit" value="Submit">
 
 }
